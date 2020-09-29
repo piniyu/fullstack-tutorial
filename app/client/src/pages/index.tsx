@@ -17,7 +17,7 @@ import { CreditPage } from './credit'
 import { CreatePollPage } from './createPoll'
 import { TagPage } from './tag'
 import { ComparePage } from './compare'
-import { BlockPage } from './block'
+// import { BlockPage } from './block'
 
 interface NotFoundProps extends RouteComponentProps { }
 
@@ -42,7 +42,7 @@ export function Pages() {
 
       <Router primary={false} component={Fragment}>
 
-        <BlockPage path="block" />
+        {/* <BlockPage path="block" /> */}
 
         <SubmitPage path="submit" />
 

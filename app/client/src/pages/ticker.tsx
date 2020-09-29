@@ -5,13 +5,13 @@ import { Form, Button, Card, Descriptions, Radio, Space, List, Typography, Resul
 import { LikeOutlined, DislikeOutlined } from '@ant-design/icons'
 import { Pane } from '../components/layout'
 import { LineChart, BarChart } from '../components/charts'
-import blur from '../assets/download.jpeg'
+// import blur from '../assets/download.jpeg'
 
-import count from '../assets/ticker_count.json'
+// import count from '../assets/ticker_count.json'
 
 const ticker = "BA"
-const keywords = count["BA"]["co_keywords"]
-const tickers = count["BA"]["co_tickers"]
+// const keywords = count["BA"]["co_keywords"]
+// const tickers = count["BA"]["co_tickers"]
 
 const demoCard0 =
   <Card>
@@ -141,7 +141,7 @@ const demo =
       <div>
         風向標 / 股價預測 <Button size="small">解鎖</Button>
         <br />
-        <img src={blur} alt="" />
+        {/* <img src={blur} alt="" /> */}
       </div>
 
       <Row>
@@ -316,12 +316,12 @@ function _Ticker() {
   const [showComments, setShowComments] = useState<boolean>(false)
   const [showOppCard, setShowOppCard] = useState<boolean>(false)
 
-  const kws = Object.entries(keywords)
-    .sort((a, b) => b[1] - a[1])
-    .map(e => e[0])
-  const tks = Object.entries(tickers)
-    .sort((a, b) => b[1] - a[1])
-    .map(e => e[0])
+  // const kws = Object.entries(keywords)
+  //   .sort((a, b) => b[1] - a[1])
+  //   .map(e => e[0])
+  // const tks = Object.entries(tickers)
+  //   .sort((a, b) => b[1] - a[1])
+  //   .map(e => e[0])
 
 
 
@@ -481,7 +481,7 @@ function _Ticker() {
       <Card>
         <Typography.Title level={4}>Tickers</Typography.Title>
         <div>
-          {tks.map((e, i) => <Button key={i} size="small" shape="round" type="text">${e}</Button>)}
+          {/* {tks.map((e, i) => <Button key={i} size="small" shape="round" type="text">${e}</Button>)} */}
         </div>
       </Card>
 
@@ -489,7 +489,7 @@ function _Ticker() {
       <Card>
         <Typography.Title level={4}>屬性</Typography.Title>
         <div>
-          {kws.map((e, i) => <Button key={i} size="small" shape="round" type="text">#{e}</Button>)}
+          {/* {kws.map((e, i) => <Button key={i} size="small" shape="round" type="text">#{e}</Button>)} */}
         </div>
       </Card>
 
