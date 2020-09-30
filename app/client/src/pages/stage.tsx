@@ -6,6 +6,7 @@ import * as queries from '../store/queries'
 import * as QT from '../store/queryTypes'
 import { Pane } from '../components/layout'
 import { PollList } from '../components/pollList'
+import Block from '../components/Block/Block';
 
 interface StageProps {
   me?: QT.me_me
@@ -98,6 +99,7 @@ const Stage: React.FC<StageProps> = ({ me }) => {
           <Link to="/cpoll">
             <Button type="primary">新討論</Button>
           </Link>
+          <Block />
         </div>
 
         {demo}
