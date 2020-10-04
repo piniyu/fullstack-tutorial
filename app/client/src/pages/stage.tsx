@@ -17,6 +17,7 @@ import * as queries from '../store/queries'
 import * as QT from '../store/queryTypes'
 import { Pane } from '../components/layout'
 import { PollList } from '../components/pollList'
+import Block from '../components/Block/Block';
 
 import BlockMeta from '../components/BlockMeta/blockMeta'
 import Anchor from '../components/Anchor/anchor'
@@ -127,6 +128,7 @@ const Stage: React.FC<StageProps> = ({ me }) => {
           <Link to="/cpoll">
             <Button type="primary">新討論</Button>
           </Link>
+          <Block />
         </div>
 
         {demo}

@@ -19,7 +19,11 @@ import { TagPage } from './tag'
 import { ComparePage } from './compare'
 // import { BlockPage } from './block'
 
+<<<<<<< HEAD
 import Block from '../components/Block/block'
+=======
+
+>>>>>>> a9f296a1361579fadfe2700712d30c59765c77ef
 
 interface NotFoundProps extends RouteComponentProps {}
 
@@ -76,6 +80,10 @@ export function Pages() {
           {/* <Login path="login" /> */}
 
           <NotFound default />
+<<<<<<< HEAD
+=======
+
+>>>>>>> a9f296a1361579fadfe2700712d30c59765c77ef
         </PageContainer>
 
         {/* <Pane path="/" left={<Feeds />} right={undefined} /> */}
