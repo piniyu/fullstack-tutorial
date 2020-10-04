@@ -1,12 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { ApolloClient, ApolloProvider, NormalizedCacheObject } from '@apollo/client'
+import {
+  ApolloClient,
+  ApolloProvider,
+  NormalizedCacheObject,
+} from '@apollo/client'
 
 import { typeDefs } from './store/resolvers'
 import { Pages } from './pages'
 import Templates from './templates'
 import { cache } from './cache'
-import './index.css'
+import './index.less'
 
 // const cache = new InMemoryCache({
 //   dataIdFromObject: (o: any) => {
@@ -26,7 +30,7 @@ import './index.css'
 
 const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
   cache,
-  uri: "http://localhost:4000/graphql",
+  uri: 'http://localhost:4000/graphql',
   headers: {
     // authorization: localStorage.getItem('token') || '',
     'client-name': 'Tsubane[web]',
@@ -74,7 +78,6 @@ const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
 //     ],
 //   },
 // })
-
 
 ReactDOM.render(
   <ApolloProvider client={client}>

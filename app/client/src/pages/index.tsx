@@ -19,9 +19,9 @@ import { TagPage } from './tag'
 import { ComparePage } from './compare'
 // import { BlockPage } from './block'
 
-import Block from '../components/Block/Block';
+import Block from '../components/Block/block'
 
-interface NotFoundProps extends RouteComponentProps { }
+interface NotFoundProps extends RouteComponentProps {}
 
 const NotFound: React.FC<NotFoundProps> = () => {
   return <h1>Page not found</h1>
@@ -43,7 +43,6 @@ export function Pages() {
       {!isLoggedIn && <Redirect from="" to="/login" noThrow />}
 
       <Router primary={false} component={Fragment}>
-
         {/* <BlockPage path="block" /> */}
 
         <SubmitPage path="submit" />
@@ -55,7 +54,6 @@ export function Pages() {
         {/* <PostThreadPage path="post/:id" /> */}
 
         <PageContainer path="/" isLoggedIn={isLoggedIn}>
-
           {/* <BoardPage path="/" me={data?.me} /> */}
 
           <StagePage path="/" me={data?.me} />
@@ -75,12 +73,9 @@ export function Pages() {
           {/* <ProtectedRoute as={Feed} isLoggedIn={isLoggedIn} default /> */}
           {/* <Pane left={<Board me={data?.me} />} right={<BoardRightPane />} default /> */}
 
-          <Login path="login" />
+          {/* <Login path="login" /> */}
 
           <NotFound default />
-
-          <Block />
-
         </PageContainer>
 
         {/* <Pane path="/" left={<Feeds />} right={undefined} /> */}
@@ -96,7 +91,5 @@ export function Pages() {
         <Profile path="profile" /> */}
       </Router>
     </>
-
   )
 }
-
