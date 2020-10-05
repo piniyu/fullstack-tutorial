@@ -3,7 +3,8 @@ import { Router, RouteComponentProps, Redirect } from '@reach/router'
 import { useApolloClient, useMutation, useQuery } from '@apollo/client'
 import * as queries from '../store/queries'
 import * as QT from '../store/queryTypes'
-import { PageContainer, Pane } from '../components/layout'
+// import { PageContainer, Pane } from '../components/layout'
+import AppLayout from '../pages/AppLayout/appLayout'
 import { BoardPage } from './board'
 import { PostThreadPage } from './postThread'
 import { SubmitPage } from './submit'
@@ -19,11 +20,7 @@ import { TagPage } from './tag'
 import { ComparePage } from './compare'
 // import { BlockPage } from './block'
 
-<<<<<<< HEAD
 import Block from '../components/Block/block'
-=======
-
->>>>>>> a9f296a1361579fadfe2700712d30c59765c77ef
 
 interface NotFoundProps extends RouteComponentProps {}
 
@@ -57,8 +54,10 @@ export function Pages() {
 
         {/* <PostThreadPage path="post/:id" /> */}
 
-        <PageContainer path="/" isLoggedIn={isLoggedIn}>
-          {/* <BoardPage path="/" me={data?.me} /> */}
+        <AppLayout />
+
+        {/* <PageContainer path="/" isLoggedIn={isLoggedIn}>
+          <BoardPage path="/" me={data?.me} />
 
           <StagePage path="/" me={data?.me} />
 
@@ -66,7 +65,7 @@ export function Pages() {
 
           <Ticker path="ticker" />
 
-          {/* <EventPage path="event/:name" /> */}
+          <EventPage path="event/:name" />
           <EventPage path="event" />
           <StackPage path="stack" />
           <CreditPage path="credit" />
@@ -74,17 +73,13 @@ export function Pages() {
           <TagPage path="tag" />
           <ComparePage path="compare" />
 
-          {/* <ProtectedRoute as={Feed} isLoggedIn={isLoggedIn} default /> */}
-          {/* <Pane left={<Board me={data?.me} />} right={<BoardRightPane />} default /> */}
+          <ProtectedRoute as={Feed} isLoggedIn={isLoggedIn} default />
+          <Pane left={<Board me={data?.me} />} right={<BoardRightPane />} default />
 
-          {/* <Login path="login" /> */}
+          <Login path="login" />
 
           <NotFound default />
-<<<<<<< HEAD
-=======
-
->>>>>>> a9f296a1361579fadfe2700712d30c59765c77ef
-        </PageContainer>
+        </PageContainer> */}
 
         {/* <Pane path="/" left={<Feeds />} right={undefined} /> */}
         {/* <EventPage path="event/:name" /> */}

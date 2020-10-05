@@ -17,7 +17,7 @@ import * as queries from '../store/queries'
 import * as QT from '../store/queryTypes'
 import { Pane } from '../components/layout'
 import { PollList } from '../components/pollList'
-import Block from '../components/Block/Block';
+import Block from '../components/Block/block'
 
 import BlockMeta from '../components/BlockMeta/blockMeta'
 import Anchor from '../components/Anchor/anchor'
