@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 
 import { Card } from 'antd'
-// import Block from '../Block/block'
+import classes from './blockMeta.less'
 
 const BlockMeta = (props: any) => {
   const [isloadding, setLoadding] = useState(true)
   useEffect(() => {
-    setTimeout(() => setLoadding(false), 3000)
-  })
+    setTimeout(() => setLoadding(false), 2000)
+  }, [])
 
   return (
     <Card hoverable loading={isloadding} bordered={false}>
