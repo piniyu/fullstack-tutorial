@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import { Card } from 'antd'
-import classes from './blockMeta.less'
+// import classes from './blockMeta.less'
 
 const BlockMeta = (props: any) => {
   const [isloadding, setLoadding] = useState(true)
