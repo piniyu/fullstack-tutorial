@@ -1,0 +1,18 @@
+@import '../../style/global.module.scss';
+
+.tag {
+    &:global(.ant-btn){
+        background: $light-primary;
+        border: none;
+        color: $primary;
+        font-weight: $font-bold;
+        
+        &:hover{
+            background: $light-primary-hover;
+ 
+        }
+    }
+    &:global(.ant-btn-round.ant-btn-sm){
+        font-size: $font-sm;
+    }
+}

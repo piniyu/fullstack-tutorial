@@ -1,0 +1,29 @@
+@import '../../style/global.module.scss';
+
+$span-width:calc((#{$font-sm} * 4) + (#{$letter-sp}*4));
+
+.card {
+  &:global(.ant-card){
+    line-height: 3;
+  }
+  .span{
+    display: inline-block;
+    width: $span-width;
+    margin-right: calc(#{$span-width}*0.4);
+    text-align: right;
+    font-weight: $font-md;
+    color: $black;
+  }
+  ul {
+    padding: 0;
+    list-style: none;
+  }
+  p{
+    position: absolute;
+    display: inline-block;
+    padding-right: 24px;
+    font-weight: $font-rg;
+    color: $black_2;
+  }
+}
+
