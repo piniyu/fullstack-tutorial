@@ -1,6 +1,6 @@
 @import 'antd/dist/antd.less';
 
-#components-layout-demo-custom-trigger .trigger {
+.trigger {
   font-size: 18px;
   line-height: 64px;
   padding: 0 24px;
@@ -8,16 +8,28 @@
   transition: color 0.3s;
 }
 
-#components-layout-demo-custom-trigger .trigger:hover {
+.trigger:hover {
   color: #1890ff;
 }
 
-#components-layout-demo-custom-trigger .logo {
+.logo {
   height: 32px;
-  background: rgba(255, 255, 255, 0.2);
+  background: @primary-color;
   margin: 16px;
 }
 
 .site-layout .site-layout-background {
   background: #fff;
+}
+
+.shadow::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px #0000002e;
 }

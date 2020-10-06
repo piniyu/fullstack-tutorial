@@ -41,22 +41,22 @@ export function Pages() {
   return (
     <>
       {/* <AutoLogin /> */}
-      {!isLoggedIn && <Redirect from="" to="/login" noThrow />}
+      {/* {!isLoggedIn && <Redirect from="" to="/login" noThrow />} */}
 
-      <Router primary={false} component={Fragment}>
-        {/* <BlockPage path="block" /> */}
+      {/* <Router primary={false} component={Fragment}> */}
+      {/* <BlockPage path="block" /> */}
 
-        <SubmitPage path="submit" />
+      {/* <SubmitPage path="submit" /> */}
 
-        {/* <ProtectedRoute path="submit" isLoggedIn={isLoggedIn} as={<SubmitPage />} /> */}
+      {/* <ProtectedRoute path="submit" isLoggedIn={isLoggedIn} as={<SubmitPage />} /> */}
 
-        <PostThreadPage path="post/:id" me={data?.me} />
+      {/* <PostThreadPage path="post/:id" me={data?.me} /> */}
 
-        {/* <PostThreadPage path="post/:id" /> */}
+      {/* <PostThreadPage path="post/:id" /> */}
 
-        <AppLayout />
+      <AppLayout />
 
-        {/* <PageContainer path="/" isLoggedIn={isLoggedIn}>
+      {/* <PageContainer path="/" isLoggedIn={isLoggedIn}>
           <BoardPage path="/" me={data?.me} />
 
           <StagePage path="/" me={data?.me} />
@@ -81,18 +81,18 @@ export function Pages() {
           <NotFound default />
         </PageContainer> */}
 
-        {/* <Pane path="/" left={<Feeds />} right={undefined} /> */}
-        {/* <EventPage path="event/:name" /> */}
-        {/* <CommitCreate path="commit/new" /> */}
-        {/* <Ticker path="ticker" /> */}
-        {/* <Pane path="feeds" left={Feeds} right={Tracks} /> */}
-        {/* <Feeds path="feeds" />
+      {/* <Pane path="/" left={<Feeds />} right={undefined} /> */}
+      {/* <EventPage path="event/:name" /> */}
+      {/* <CommitCreate path="commit/new" /> */}
+      {/* <Ticker path="ticker" /> */}
+      {/* <Pane path="feeds" left={Feeds} right={Tracks} /> */}
+      {/* <Feeds path="feeds" />
 
       {/* <Launches path="/" />
         <Launch path="launch/:launchId" />
         <Cart path="cart" />｀
         <Profile path="profile" /> */}
-      </Router>
+      {/* </Router> */}
     </>
   )
 }

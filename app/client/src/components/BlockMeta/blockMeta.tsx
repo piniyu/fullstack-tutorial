@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
-import Block from '../Block/block'
+import { Card } from 'antd'
+// import Block from '../Block/block'
 
-const blockMeta = () => {
+const BlockMeta = (props: any) => {
+  const [isloadding, setLoadding] = useState(true)
+  useEffect(() => {
+    setTimeout(() => setLoadding(false), 3000)
+  })
+
   return (
-    <Block>
+    <Card hoverable loading={isloadding} bordered={false}>
       <ul>
         <li>
           <span>關聯標籤</span>
@@ -23,8 +29,8 @@ const blockMeta = () => {
           </p>
         </li>
       </ul>
-    </Block>
+    </Card>
   )
 }
 
-export default blockMeta
+export default BlockMeta

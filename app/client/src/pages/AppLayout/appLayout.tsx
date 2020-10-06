@@ -7,6 +7,8 @@ import {
   VideoCameraOutlined,
   UploadOutlined,
 } from '@ant-design/icons'
+import './appLayout.less'
+import BlockMeta from '../../components/BlockMeta/blockMeta'
 
 const { Header, Sider, Content } = Layout
 
@@ -23,23 +25,36 @@ class AppLayout extends Component {
 
   render() {
     return (
-      <Layout>
-        <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
+      <Layout style={{ position: 'relative', zIndex: 100 }}>
+        <Sider
+          trigger={null}
+          collapsible
+          collapsed={this.state.collapsed}
+          theme="light"
+          className="shadow"
+          style={{ position: 'relative', zIndex: 1 }}
+        >
           <div className="logo" />
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+          <Menu theme="light" mode="inline" defaultSelectedKeys={['1']}>
             <Menu.Item key="1" icon={<UserOutlined />}>
-              nav 1
+              探索
             </Menu.Item>
             <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-              nav 2
+              熱門
             </Menu.Item>
             <Menu.Item key="3" icon={<UploadOutlined />}>
-              nav 3
+              關注
             </Menu.Item>
           </Menu>
         </Sider>
-        <Layout className="site-layout">
-          <Header className="site-layout-background" style={{ padding: 0 }}>
+        <Layout
+          className="site-layout"
+          style={{ position: 'relative', zIndex: -100 }}
+        >
+          <Header
+            className="site-layout-background"
+            style={{ padding: 0, position: 'relative', zIndex: 2 }}
+          >
             {React.createElement(
               this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
               {
@@ -49,14 +64,14 @@ class AppLayout extends Component {
             )}
           </Header>
           <Content
-            className="site-layout-background"
+            // className="site-layout-background"
             style={{
               margin: '24px 16px',
-              padding: 24,
+              // padding: 24,
               minHeight: 280,
             }}
           >
-            Content
+            <BlockMeta />
           </Content>
         </Layout>
       </Layout>
