@@ -20,8 +20,6 @@ import { TagPage } from './tag'
 import { ComparePage } from './compare'
 // import { BlockPage } from './block'
 
-import Block from '../components/Block/block'
-
 interface NotFoundProps extends RouteComponentProps {}
 
 const NotFound: React.FC<NotFoundProps> = () => {

@@ -9,6 +9,7 @@ import {
 } from '@ant-design/icons'
 import './appLayout.less'
 import BlockMeta from '../../components/BlockMeta/blockMeta'
+import ConsPros from '../../components/ConsPros/consPros'
 
 const { Header, Sider, Content } = Layout
 
@@ -25,7 +26,7 @@ class AppLayout extends Component {
 
   render() {
     return (
-      <Layout style={{ position: 'relative', zIndex: 100 }}>
+      <Layout className="my-app">
         <Sider
           trigger={null}
           collapsible
@@ -52,7 +53,7 @@ class AppLayout extends Component {
           style={{ position: 'relative', zIndex: -100 }}
         >
           <Header
-            className="site-layout-background"
+            className="site-layout-background white"
             style={{ padding: 0, position: 'relative', zIndex: 2 }}
           >
             {React.createElement(
@@ -64,7 +65,7 @@ class AppLayout extends Component {
             )}
           </Header>
           <Content
-            // className="site-layout-background"
+            className="site-layout-background"
             style={{
               margin: '24px 16px',
               // padding: 24,
@@ -72,6 +73,7 @@ class AppLayout extends Component {
             }}
           >
             <BlockMeta />
+            <ConsPros />
           </Content>
         </Layout>
       </Layout>

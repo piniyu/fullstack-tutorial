@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import { Card } from 'antd'
-import classes from './blockMeta.module.scss'
+import classes from './consPros.module.scss'
 
 import Tag from '../Tag/tag'
 
