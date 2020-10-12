@@ -1,0 +1,20 @@
+@import '../../style/global.module.scss';
+
+.Anchor {
+  &:global(.ant-anchor-wrapper) {
+    background-color: transparent;
+    :global(.ant-anchor-ink) {
+      &::before {
+        background-color: $natual2;
+      }
+      :global(.ant-anchor-ink-ball) {
+        width: 2px;
+        border: none;
+        border-radius: 0;
+      }
+    }
+  }
+  :global(.ant-anchor) {
+    font-size: $font-sm;
+  }
+}

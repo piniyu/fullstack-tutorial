@@ -1,41 +1,24 @@
 @import '../../style/global.module.scss';
+@import '../../style/card.module.scss';
 
-$span-width:calc((#{$font-sm} * 4) + (#{$letter-sp}*4));
+$span-width: calc((#{$font-sm} * 4) + (#{$letter-sp}* 4));
 
 .card {
-  &:global(.ant-card){
-    border-radius: 5px;
-    line-height: 3;
-    
-    :global(.ant-card-head){
-      line-height: 1;
-      font-size: $font-lg;
-      font-weight: $font-bd;
-    }
-  }
-  .span{
+  .span {
     // display: inline-block;
     flex-shrink: 0;
     width: $span-width;
-    margin-right: calc(#{$span-width}*0.4);
+    margin-right: calc(#{$span-width}* 0.4);
     text-align: right;
     font-weight: $font-md;
     color: $black;
   }
-  ul {
-    display: flex;
-    flex-direction: column;
-    // justify-content: space-between;
-    // align-content: space-between;
-    padding: 0;
-    list-style: none;
-    font-size: $font-sm;
-  }
-  li{
+
+  li {
     display: flex;
     align-items: baseline;
   }
-  p{
+  p {
     // position: absolute;
     // display: inline-block;
     // align-self: flex-end;
@@ -44,4 +27,3 @@ $span-width:calc((#{$font-sm} * 4) + (#{$letter-sp}*4));
     color: $black_2;
   }
 }
-

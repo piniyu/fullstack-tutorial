@@ -19,7 +19,7 @@ import { Pane } from '../components/layout'
 import { PollList } from '../components/pollList'
 
 import BlockMeta from '../components/BlockMeta/blockMeta'
-import Anchor from '../components/Anchor/anchor'
+import Anchor from '../components/Anchor/tickerAnchor'
 
 interface StageProps {
   me?: QT.me_me

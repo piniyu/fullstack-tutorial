@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from 'antd'
+import { Tag } from 'antd'
 
 import classes from './tag.module.scss'
 
@@ -7,10 +7,8 @@ interface props {
   content: string
 }
 
-const Tag: React.FC<props> = ({ content }) => (
-  <Button className={classes.tag} shape="round" size="small">
-    {content}
-  </Button>
+const Tags: React.FC<props> = ({ content }) => (
+  <Tag className={classes.tag}>{content}</Tag>
 )
 
-export default Tag
+export default Tags

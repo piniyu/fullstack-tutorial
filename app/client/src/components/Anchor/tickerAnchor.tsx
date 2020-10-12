@@ -1,10 +1,11 @@
 import React from 'react'
 import { Anchor } from 'antd'
+import classes from './tickerAnchor.module.scss'
 
 const { Link } = Anchor
 
-const anchor = () => (
-  <Anchor>
+const TickerAnchor = () => (
+  <Anchor className={classes.Anchor}>
     <Link href="#components-anchor-demo-basic" title="Basic demo" />
     <Link href="#components-anchor-demo-static" title="Static demo" />
     <Link href="#API" title="API">
@@ -14,4 +15,4 @@ const anchor = () => (
   </Anchor>
 )
 
-export default anchor
+export default TickerAnchor

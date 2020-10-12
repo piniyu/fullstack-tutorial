@@ -1,18 +1,16 @@
 @import '../../style/global.module.scss';
 
 .tag {
-    &:global(.ant-btn){
-        background: $light-primary;
-        border: none;
-        color: $primary;
-        font-weight: $font-bd;
-        
-        &:hover{
-            background: $light-primary-hover;
- 
-        }
+  &:global(.ant-tag) {
+    background: $light-primary;
+    border: none;
+    border-radius: 10px;
+    color: $primary;
+    font-weight: $font-bd;
+
+    &:hover {
+      background: $light-primary-hover;
+      cursor: pointer;
     }
-    &:global(.ant-btn-round.ant-btn-sm){
-        font-size: $font-sm;
-    }
+  }
 }

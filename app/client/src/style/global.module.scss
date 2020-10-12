@@ -8,14 +8,24 @@ $disable: #a7a7a7;
 $natual: #e6e8f2;
 $light-primary: rgba(28, 191, 185, 0.17);
 $light-primary-hover: rgba(28, 191, 186, 0.13);
-$primary:#1CBFB9;
+$primary: #1cbfb9;
+$error: #f94d6a;
+$natual2: #d1d1d1;
 
 /* Fonts */
-$letter-sp:0.0875rem;
+$letter-sp: 0.0875rem;
 
 $font-sm: 0.8125rem;
 $font-lg: 1.125rem;
 
-$font-rg:400;
-$font-md:500;
+$font-rg: 400;
+$font-md: 500;
 $font-bd: 700;
+
+ul {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  list-style: none;
+  font-size: $font-sm;
+}

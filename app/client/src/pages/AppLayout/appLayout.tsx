@@ -9,7 +9,9 @@ import {
 } from '@ant-design/icons'
 import './appLayout.less'
 import BlockMeta from '../../components/BlockMeta/blockMeta'
-import ConsPros from '../../components/ConsPros/consPros'
+import ProsCons from '../../components/ProsCons/prosCons'
+import Anchor from '../../components/Anchor/tickerAnchor'
+import TickerComment from '../../components/TickerComment/tickerComment'
 
 const { Header, Sider, Content } = Layout
 
@@ -32,8 +34,7 @@ class AppLayout extends Component {
           collapsible
           collapsed={this.state.collapsed}
           theme="light"
-          className="shadow"
-          style={{ position: 'relative', zIndex: 1 }}
+          style={{ position: 'relative' }}
         >
           <div className="logo" />
           <Menu theme="light" mode="inline" defaultSelectedKeys={['1']}>
@@ -48,13 +49,10 @@ class AppLayout extends Component {
             </Menu.Item>
           </Menu>
         </Sider>
-        <Layout
-          className="site-layout"
-          style={{ position: 'relative', zIndex: -100 }}
-        >
+        <Layout className="site-layout" style={{ position: 'relative' }}>
           <Header
-            className="site-layout-background white"
-            style={{ padding: 0, position: 'relative', zIndex: 2 }}
+            className="site-layout-background header "
+            style={{ padding: 0 }}
           >
             {React.createElement(
               this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
@@ -64,8 +62,11 @@ class AppLayout extends Component {
               },
             )}
           </Header>
+          <div className="anchorWrapper">
+            <Anchor />
+          </div>
           <Content
-            className="site-layout-background"
+            className="site-layout-background content"
             style={{
               margin: '24px 16px',
               // padding: 24,
@@ -73,7 +74,8 @@ class AppLayout extends Component {
             }}
           >
             <BlockMeta />
-            <ConsPros />
+            <ProsCons />
+            <TickerComment />
           </Content>
         </Layout>
       </Layout>

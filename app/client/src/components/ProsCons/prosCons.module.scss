@@ -1,0 +1,55 @@
+@import '../../style/global.module.scss';
+@import '../../style/card.module.scss';
+
+$span-width: calc((#{$font-sm} * 4) + (#{$letter-sp}* 4));
+
+.card {
+  li {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    height: 50px;
+    margin-bottom: 20px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  p {
+    line-height: 2;
+    font-weight: $font-rg;
+    color: $black_2;
+  }
+
+  .gridContainer {
+    display: flex;
+    justify-content: space-between;
+    border: none;
+    div {
+      flex: 1;
+      max-width: 50%;
+      position: relative;
+      &:first-child {
+        padding-right: 24px;
+        border-right: 1px solid $natual;
+      }
+      &:last-child {
+        padding-left: 24px;
+      }
+    }
+
+    svg {
+      flex-shrink: 0;
+      margin-right: 10px;
+    }
+
+    span {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      max-height: 60px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 2;
+      line-height: 2;
+    }
+  }
+}

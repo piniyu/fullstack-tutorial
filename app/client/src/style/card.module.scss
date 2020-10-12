@@ -1,0 +1,22 @@
+@import './global.module.scss';
+
+.card {
+  &:global(.ant-card) {
+    border-radius: 5px;
+    line-height: 3;
+
+    :global(.ant-card-head) {
+      padding-top: 10px;
+      border: none;
+      line-height: 1;
+      font-size: $font-lg;
+      font-weight: $font-bd;
+      :global(.ant-card-head-title) {
+        // padding: 16px 0 10px;
+      }
+    }
+    :global(.ant-card-body) {
+      padding: 16px 24px;
+    }
+  }
+}
