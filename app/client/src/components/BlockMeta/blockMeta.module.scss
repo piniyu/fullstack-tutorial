@@ -1,29 +1,29 @@
 @import '../../style/global.module.scss';
-@import '../../style/card.module.scss';
+// @import '../../style/card.module.scss';
 
 $span-width: calc((#{$font-sm} * 4) + (#{$letter-sp}* 4));
 
-.card {
-  .span {
-    // display: inline-block;
-    flex-shrink: 0;
-    width: $span-width;
-    margin-right: calc(#{$span-width}* 0.4);
-    text-align: right;
-    font-weight: $font-md;
-    color: $black;
-  }
-
-  li {
-    display: flex;
-    align-items: baseline;
-  }
-  p {
-    // position: absolute;
-    // display: inline-block;
-    // align-self: flex-end;
-    line-height: 2;
-    font-weight: $font-rg;
-    color: $black_2;
-  }
+// .card {
+.span {
+  // display: inline-block;
+  flex-shrink: 0;
+  width: $span-width;
+  margin-right: calc(#{$span-width}* 0.4);
+  text-align: right;
+  font-weight: $font-md;
+  color: $black;
 }
+
+li {
+  display: flex;
+  align-items: baseline;
+}
+p {
+  // position: absolute;
+  // display: inline-block;
+  // align-self: flex-end;
+  line-height: 2;
+  font-weight: $font-rg;
+  color: $black_2;
+}
+// }

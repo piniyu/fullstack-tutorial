@@ -1,13 +1,14 @@
 @import '../../style/global.module.scss';
 
-.RadiosWrapper {
+.RadioWrapper {
+  margin-bottom: 2em;
   :global(.ant-radio-group) {
     position: relative;
     z-index: 1;
     &:after {
       position: absolute;
       z-index: -1;
-      top: 3px;
+      top: 2px;
       content: '';
       display: block;
       width: 100%;
@@ -19,18 +20,31 @@
   }
   :global(.ant-radio-button-wrapper) {
     border: none;
+    font-size: $font-sm;
+    color: $black_2;
+    &:first-child {
+      border: none;
+      border-radius: 6px 0 0 6px;
+    }
+    &:not(:first-child)::before {
+      height: 32px;
+      top: 0;
+      padding: 0;
+      background-color: $natual;
+      // border: none;
+    }
+    &:last-child {
+      border-radius: 0 6px 6px 0;
+    }
+    &:hover {
+      background-color: $natual;
+      color: inherit;
+    }
   }
-  :global(.ant-radio-button-wrapper:first-child) {
-    border: none;
-    border-radius: 6px 0 0 6px;
-  }
-  :global(.ant-radio-button-wrapper:not(:first-child)::before) {
-    height: 32px;
-    top: 0;
-    padding: 0;
-    // border: none;
-  }
-  :global(.ant-radio-button-wrapper:last-child) {
-    border-radius: 0 6px 6px 0;
+
+  h4 {
+    margin: 10;
+    // line-height: 2;
+    color: $black_2;
   }
 }

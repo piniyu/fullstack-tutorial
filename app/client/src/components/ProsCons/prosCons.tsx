@@ -1,20 +1,12 @@
 import React, { useState, useEffect } from 'react'
 
-import { Card } from 'antd'
-// import { CloseOutlined } from '@ant-design/icons'
+import Block from '../Block/block'
 import classes from './prosCons.module.scss'
 
 import { ReactComponent as CheckOutlined } from '../../assets/icons/checkOutlined.svg'
 import { ReactComponent as CloseOutlined } from '../../assets/icons/closeOutlined.svg'
 
-import Tag from '../Tag/tag'
-
 const ConsPros = (props: any) => {
-  const [isLoadding, setLoadding] = useState(true)
-  useEffect(() => {
-    setTimeout(() => setLoadding(false), 2000)
-  }, [])
-
   const [consPros, setConsPros] = useState([
     {
       type: 'con',
@@ -79,13 +71,7 @@ const ConsPros = (props: any) => {
   })
 
   return (
-    <Card
-      title="優劣勢"
-      className={classes.card}
-      hoverable
-      loading={isLoadding}
-      bordered={false}
-    >
+    <Block title="優勢＆劣勢">
       <div className={classes.gridContainer}>
         <div>
           <ul>{consList}</ul>
@@ -95,7 +81,7 @@ const ConsPros = (props: any) => {
           <ul>{prosList}</ul>
         </div>
       </div>
-    </Card>
+    </Block>
   )
 }
 

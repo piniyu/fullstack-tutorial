@@ -1,24 +1,14 @@
 import React, { useState, useEffect } from 'react'
 
 import { Card } from 'antd'
+import Block from '../Block/block'
 import classes from './blockMeta.module.scss'
 
 import Tag from '../Tag/tag'
 
 const BlockMeta = (props: any) => {
-  const [isloadding, setLoadding] = useState(true)
-  useEffect(() => {
-    setTimeout(() => setLoadding(false), 2000)
-  }, [])
-
   return (
-    <Card
-      title="Meta"
-      className={classes.card}
-      hoverable
-      loading={isloadding}
-      bordered={false}
-    >
+    <Block title="Meta">
       <ul>
         <li>
           <span className={classes.span}>關聯標籤</span>
@@ -37,7 +27,7 @@ const BlockMeta = (props: any) => {
           </p>
         </li>
       </ul>
-    </Card>
+    </Block>
   )
 }
 

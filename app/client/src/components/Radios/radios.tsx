@@ -2,23 +2,21 @@ import React from 'react'
 import { Radio } from 'antd'
 import classes from './radios.module.scss'
 
-const Radios = () => (
-  <div className={classes.RadiosWrapper}>
-    <Radio.Group defaultValue="a" buttonStyle="solid">
-      <Radio.Button value="a">Hangzhou</Radio.Button>
-      <Radio.Button value="b">Shanghai</Radio.Button>
-      <Radio.Button value="c">Beijing</Radio.Button>
-      <Radio.Button value="d">Chengdu</Radio.Button>
-    </Radio.Group>
-    <Radio.Group defaultValue="c" buttonStyle="solid" style={{ marginTop: 16 }}>
-      <Radio.Button value="a">Hangzhou</Radio.Button>
-      <Radio.Button value="b" disabled>
-        Shanghai
-      </Radio.Button>
-      <Radio.Button value="c">Beijing</Radio.Button>
-      <Radio.Button value="d">Chengdu</Radio.Button>
-    </Radio.Group>
-  </div>
-)
+interface Props {
+  title?: string
+  buttonText: string[]
+}
+
+const Radios = (props: Props) => {
+  const radioGroup = props.buttonText!.map((text: string) => (
+    <Radio.Button value={text}>{text}</Radio.Button>
+  ))
+  return (
+    <div className={classes.RadioWrapper}>
+      {props.title ? <h4>{props.title}</h4> : null}
+      <Radio.Group buttonStyle="solid">{radioGroup}</Radio.Group>
+    </div>
+  )
+}
 
 export default Radios

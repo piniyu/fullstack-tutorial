@@ -1,9 +1,9 @@
-@import './global.module.scss';
+@import '../../style/global.module.scss';
 
 .card {
   &:global(.ant-card) {
     border-radius: 5px;
-    line-height: 3;
+    line-height: 2;
 
     :global(.ant-card-head) {
       padding-top: 10px;

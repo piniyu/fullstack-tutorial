@@ -28,7 +28,7 @@ module.exports = {
             modifyVars: {
               '@font-family':
                 '"Noto Sans TC",apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,"Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol","Noto Color Emoji"',
-              '@primary-color': '#1CBFB9',
+              '@primary-color': 'rgba(28, 191, 185, 1)',
             },
             javascriptEnabled: true,
           },
