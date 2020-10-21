@@ -12,6 +12,7 @@
     "@types/reach__router": "^1.3.5",
     "@types/react": "^16.9.36",
     "@types/react-dom": "^16.9.8",
+    "@types/react-sticky": "^6.0.3",
     "antd": "^4.3.3",
     "apexcharts": "^3.19.2",
     "chart.js": "^2.9.3",
@@ -29,6 +30,7 @@
     "react-dom": "^16.9.0-alpha.0",
     "react-emotion": "^9.2.12",
     "react-scripts": "^3.4.1",
+    "react-sticky": "^6.0.3",
     "typescript": "^3.9.5"
   },
   "scripts": {

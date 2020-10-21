@@ -12,6 +12,7 @@ import BlockMeta from '../../components/BlockMeta/blockMeta'
 import ProsCons from '../../components/ProsCons/prosCons'
 import Anchor from '../../components/Anchor/tickerAnchor'
 import TickerComment from '../../components/TickerComment/tickerComment'
+import DiscussionList from '../../components/DiscussionList/discussionList'
 
 const { Header, Sider, Content } = Layout
 
@@ -76,6 +77,7 @@ class AppLayout extends Component {
             <BlockMeta />
             <ProsCons />
             <TickerComment />
+            <DiscussionList />
           </Content>
         </Layout>
       </Layout>
