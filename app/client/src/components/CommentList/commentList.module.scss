@@ -1,10 +1,25 @@
 @import '../../style/global.module.scss';
 
 .List {
+  &:global(.ant-list) {
+    margin-top: 20px;
+    :global(.ant-list-header) {
+      font-weight: $font-bd;
+      color: $black;
+    }
+  }
+  :global(.ant-pagination) {
+    flex-direction: row;
+  }
+  :global(.ant-list-item) {
+    // align-items: flex-end;
+  }
+}
+.ListContent {
+  word-wrap: break-word;
+  word-break: break-all;
 }
 .iconText {
-  &:global(.ant-list-item) {
-  }
   ul {
     flex-direction: row;
 

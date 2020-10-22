@@ -19,7 +19,7 @@ for (let i = 0; i < 23; i++) {
     // description:
     //   'Ant Design, a design language for background applications, is refined by Ant UED Team.',
     content:
-      'dkjfa;lksdj;flkaj;lksdj;lfkja;dslkjf;akjsd;flkja;sdkj;lkjd;lfkja;lskdjf;lkasjdf types beautifully and efficiently.',
+      'dkjfa;lksdj;flkaj;lksdj;lfkja;dslkjf;akjsd;flkja;sdkj;lkjd;lfkja;lskdjf lkasjdf types beautifully and efficiently.',
   })
 }
 
@@ -38,6 +38,7 @@ const CommentList = () => (
   <List
     className={classes.List}
     size="large"
+    header={`${listData.length} 條討論`}
     pagination={{
       onChange: (page) => {
         console.log(page)
@@ -45,11 +46,11 @@ const CommentList = () => (
       pageSize: 3,
     }}
     dataSource={listData}
-    footer={
-      <div>
-        <b>ant design</b> footer part
-      </div>
-    }
+    // footer={
+    //   //   <div>
+    //   //     <b>ant design</b> footer part
+    //   //   </div>
+    // }
     renderItem={(item) => (
       <List.Item
         // key={item.title}
@@ -79,7 +80,7 @@ const CommentList = () => (
         //   />
         // }
       >
-        {item.content}
+        <span className={classes.ListContent}>{item.content}</span>
       </List.Item>
     )}
   />
