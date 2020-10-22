@@ -1,0 +1,34 @@
+@import '../../style/global.module.scss';
+
+.Wrapper {
+  display: flex;
+}
+
+.TextArea {
+  &:global(.ant-input) {
+    resize: none;
+    border: {
+      left: none;
+      right: none;
+      top: none;
+      bottom: 1px solid $natual2;
+      radius: 0;
+    }
+
+    &:hover {
+      border-bottom: 1px solid $black;
+    }
+
+    &:focus {
+      box-shadow: none;
+      border-bottom: 1px solid $black;
+    }
+
+    // &:focus {
+    //   border-bottom: 1px solid #000;
+    // }
+    // &:hover {
+    //   border-bottom: 1px solid #000;
+    // }
+  }
+}

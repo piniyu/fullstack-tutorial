@@ -1,0 +1,17 @@
+@import '../../style/global.module.scss';
+
+.List {
+}
+.iconText {
+  &:global(.ant-list-item) {
+  }
+  ul {
+    flex-direction: row;
+
+    // margin-left: 0;
+    li {
+      margin-top: 10px;
+      margin-bottom: 0;
+    }
+  }
+}
