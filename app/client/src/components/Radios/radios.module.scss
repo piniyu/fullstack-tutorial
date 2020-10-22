@@ -41,6 +41,10 @@
       color: inherit;
     }
   }
+  :global(.ant-radio-group-solid
+      .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):focus-within) {
+    box-shadow: none;
+  }
 
   h4 {
     margin: 10;

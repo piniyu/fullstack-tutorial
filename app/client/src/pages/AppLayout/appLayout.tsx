@@ -68,8 +68,6 @@ class AppLayout extends Component {
           <Content
             className="site-layout-background content"
             style={{
-              margin: '24px 16px',
-              // padding: 24,
               minHeight: 280,
             }}
           >

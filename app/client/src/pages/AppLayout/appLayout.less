@@ -24,8 +24,8 @@
 
   .site-layout {
     display: grid;
-    grid-template-columns: auto minmax(150px, 1fr);
-    grid-template-rows: 8vh auto;
+    grid-template-columns: auto 160px;
+    grid-template-rows: 64px auto;
     grid-template-areas: 'header header' 'content anchor';
     .site-layout-background {
       background-color: #f0f2f5;
@@ -54,15 +54,17 @@
   .content {
     grid-area: content;
     z-index: 99;
+    // max-width: 70vw;
+    margin: 24px 4%;
 
-    padding-right: 10px;
+    // padding-right: 10px;
   }
   .anchorWrapper {
     position: fixed;
     right: 0px;
     top: 8vh;
     margin-top: 24px;
-    padding-right: 16px;
+    margin-right: 24px;
   }
 }
 
