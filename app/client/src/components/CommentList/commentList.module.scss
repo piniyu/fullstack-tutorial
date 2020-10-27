@@ -11,22 +11,60 @@
   :global(.ant-pagination) {
     flex-direction: row;
   }
-  :global(.ant-list-item) {
+  :global(.ant-comment-nested) {
     // align-items: flex-end;
+    :global(.ant-comment) {
+      border: none;
+    }
+  }
+  :global(.ant-list-items) {
+  }
+  :global(.ant-comment) {
+    width: 100%;
+    border-bottom: 1px solid $natual2;
+  }
+  .commentRoot {
+    margin-bottom: 0;
+    &:hover {
+      background-color: $natual-hover;
+    }
+  }
+  :global(.ant-comment-inner) {
+    padding: 5px 0;
+  }
+  :global(.ant-comment-actions) {
+    flex-direction: row;
+    flex-shrink: 0;
+    &li > span {
+      font-size: $font-sm;
+    }
+  }
+  :global(.ant-comment-content) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  :global(.ant-comment-content-detail) {
+    margin-left: 10px;
+  }
+  :global(.ant-comment-nested) {
+    margin-left: 0;
+    padding-left: 40px;
+    background-color: $natual-light;
   }
 }
 .ListContent {
   word-wrap: break-word;
   word-break: break-all;
 }
-.iconText {
-  ul {
-    flex-direction: row;
+// .iconText {
+//   ul {
+//     flex-direction: row;
 
-    // margin-left: 0;
-    li {
-      margin-top: 10px;
-      margin-bottom: 0;
-    }
-  }
-}
+//     // margin-left: 0;
+//     li {
+//       margin-top: 10px;
+//       margin-bottom: 0;
+//     }
+//   }
+// }

@@ -11,7 +11,7 @@ interface props {
 const Block = (props: props) => {
   const [isloadding, setLoadding] = useState(true)
   useEffect(() => {
-    setTimeout(() => setLoadding(false), 2000)
+    setTimeout(() => setLoadding(false), 1000)
   }, [])
 
   return (

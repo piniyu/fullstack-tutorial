@@ -8,14 +8,14 @@
     &:after {
       position: absolute;
       z-index: -1;
-      top: 2px;
+      top: 3px;
       content: '';
       display: block;
       width: 100%;
       height: 32px;
       border-radius: 6px;
       background-color: rgba(154, 140, 140, 0.3);
-      filter: blur(3px);
+      filter: blur(2px);
     }
   }
   :global(.ant-radio-button-wrapper) {
