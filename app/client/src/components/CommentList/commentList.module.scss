@@ -3,6 +3,7 @@
 .List {
   &:global(.ant-list) {
     margin-top: 20px;
+
     :global(.ant-list-header) {
       font-weight: $font-bd;
       color: $black;
@@ -22,35 +23,41 @@
   :global(.ant-comment) {
     width: 100%;
     border-bottom: 1px solid $natual2;
+    background-color: none;
   }
   .commentRoot {
     margin-bottom: 0;
+    :global(.ant-comment-actions) {
+      flex-direction: row;
+      flex-shrink: 0;
+      margin-left: auto;
+
+      opacity: 0;
+    }
     &:hover {
       background-color: $natual-hover;
+      :global(.ant-comment-actions) {
+        opacity: 1;
+        transition: opacity 0.2s;
+      }
     }
   }
   :global(.ant-comment-inner) {
     padding: 5px 0;
   }
-  :global(.ant-comment-actions) {
-    flex-direction: row;
-    flex-shrink: 0;
-    &li > span {
-      font-size: $font-sm;
-    }
-  }
   :global(.ant-comment-content) {
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: center;
+    font-size: $font-sm;
   }
   :global(.ant-comment-content-detail) {
-    margin-left: 10px;
+    margin: 0 16px 0 10px;
   }
   :global(.ant-comment-nested) {
     margin-left: 0;
     padding-left: 40px;
-    background-color: $natual-light;
+    // background-color: $natual-light;
   }
 }
 .ListContent {

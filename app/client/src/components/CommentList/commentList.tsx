@@ -9,21 +9,25 @@ import {
 import classes from './commentList.module.scss'
 
 interface listData {
-  href: string
+  //   href: string
   //   title: string
   //   description: string
+  parent: boolean
   content: string
+  floor: string
 }
 
 const listData: Array<listData> = []
 for (let i = 0; i < 14; i++) {
   listData.push({
-    href: 'https://ant.design',
+    // href: 'https://ant.design',
     // title: `ant design part ${i}`,
     // description:
     //   'Ant Design, a design language for background applications, is refined by Ant UED Team.',
+    parent: false,
     content:
       'dkjkjf;akjsd;flkja;sdkj;lkjd;lfkja;lskdjf lkasjdf types beautifully and efficiently.',
+    floor: `#${i + 1}`,
   })
 }
 
@@ -74,12 +78,12 @@ const CommentList = () => {
   ]
 
   type commentTemplate = {
-    className?: string
     content: string
+    floor?: string
     children?: React.ReactNode
   }
   const CommentTemplate: React.FC<commentTemplate> = (props) => (
-    <Comment actions={actions} content={props.content}>
+    <Comment author={props.floor} actions={actions} content={props.content}>
       {props.children}
     </Comment>
   )
@@ -104,7 +108,7 @@ const CommentList = () => {
       renderItem={(item) => (
         <li className={classes.commentRoot}>
           <CommentTemplate content={item.content}>
-            <CommentTemplate content={item.content} />
+            <CommentTemplate content={item.content} floor={item.floor} />
           </CommentTemplate>
         </li>
         // <li>
