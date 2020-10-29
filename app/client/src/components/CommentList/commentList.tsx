@@ -6,7 +6,9 @@ import {
   DislikeFilled,
   LikeFilled,
 } from '@ant-design/icons'
+import MyTextArea from '../MyTextArea/myTextArea'
 import classes from './commentList.module.scss'
+import { SwitchClickEventHandler } from 'antd/lib/switch'
 
 interface listData {
   //   href: string
@@ -31,16 +33,16 @@ for (let i = 0; i < 14; i++) {
   })
 }
 
-interface IconText {
-  icon: React.FunctionComponent
-  text: string
-}
-const IconText = ({ icon, text }: IconText) => (
-  <Space>
-    {React.createElement(icon)}
-    {text}
-  </Space>
-)
+// interface IconText {
+//   icon: React.FunctionComponent
+//   text: string
+// }
+// const IconText = ({ icon, text }: IconText) => (
+//   <Space>
+//     {React.createElement(icon)}
+//     {text}
+//   </Space>
+// )
 
 const CommentList = () => {
   const [likes, setLikes] = useState(0)
@@ -81,12 +83,19 @@ const CommentList = () => {
     content: string
     floor?: string
     children?: React.ReactNode
+    onClick: React.MouseEventHandler
   }
   const CommentTemplate: React.FC<commentTemplate> = (props) => (
     <Comment author={props.floor} actions={actions} content={props.content}>
       {props.children}
     </Comment>
   )
+
+  const [isClick, setClick] = useState(false)
+
+  const parentCommentClickHandler = () => {
+    setClick(!isClick)
+  }
 
   return (
     <List
@@ -107,8 +116,12 @@ const CommentList = () => {
       // }
       renderItem={(item) => (
         <li className={classes.commentRoot}>
-          <CommentTemplate content={item.content}>
-            <CommentTemplate content={item.content} floor={item.floor} />
+          <CommentTemplate
+            content={item.content}
+            onClick={parentCommentClickHandler}
+          >
+            {isClick ? <MyTextArea /> : null}
+            {/* <CommentTemplate content={item.content} floor={item.floor} /> */}
           </CommentTemplate>
         </li>
         // <li>
