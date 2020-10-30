@@ -14,6 +14,7 @@ interface listData {
   //   href: string
   //   title: string
   //   description: string
+  id: string
   parent: boolean
   content: string
   floor: string
@@ -26,6 +27,7 @@ for (let i = 0; i < 14; i++) {
     // title: `ant design part ${i}`,
     // description:
     //   'Ant Design, a design language for background applications, is refined by Ant UED Team.',
+    id: `${i}`,
     parent: false,
     content:
       'dkjkjf;akjsd;flkja;sdkj;lkjd;lfkja;lskdjf lkasjdf types beautifully and efficiently.',
@@ -80,6 +82,7 @@ const CommentList = () => {
   ]
 
   type commentTemplate = {
+    id: string
     content: string
     floor?: string
     children?: React.ReactNode
@@ -91,14 +94,18 @@ const CommentList = () => {
     </Comment>
   )
 
-  const [isClick, setClick] = useState({ id: '0', expand: false })
+  const [isClick, setClick] = useState({ id: '', expand: false })
 
   const parentCommentClickHandler = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
   ) => {
     const commentId = e.currentTarget.id
     const preState = isClick.expand
-    setClick({ id: commentId, expand: !preState })
+    setClick((prevState) => {
+      return {
+        ...prevState,
+      }
+    })
   }
 
   return (
@@ -121,6 +128,7 @@ const CommentList = () => {
       renderItem={(item) => (
         <li className={classes.commentRoot}>
           <CommentTemplate
+            id={item.id}
             content={item.content}
             onClick={parentCommentClickHandler}
           >
