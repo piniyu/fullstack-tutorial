@@ -91,10 +91,14 @@ const CommentList = () => {
     </Comment>
   )
 
-  const [isClick, setClick] = useState(false)
+  const [isClick, setClick] = useState({ id: '0', expand: false })
 
-  const parentCommentClickHandler = () => {
-    setClick(!isClick)
+  const parentCommentClickHandler = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+  ) => {
+    const commentId = e.currentTarget.id
+    const preState = isClick.expand
+    setClick({ id: commentId, expand: !preState })
   }
 
   return (
