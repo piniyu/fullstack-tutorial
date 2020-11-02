@@ -5,7 +5,11 @@ import classes from './myTextArea.module.scss'
 
 const { TextArea } = Input
 
-const MyTextArea = () => {
+interface props {
+  focused?: any
+}
+
+const MyTextArea = (props: props) => {
   const [commentValue, setValue] = useState('')
 
   const [buttonDisable, setButtonState] = useState(true)
@@ -32,6 +36,7 @@ const MyTextArea = () => {
         placeholder="留言..."
         autoSize
         onChange={onChangeHanddler}
+        onClick={props.focused}
       />
       <Button type="text" disabled={buttonDisable}>
         送出

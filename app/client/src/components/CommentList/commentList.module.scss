@@ -2,9 +2,10 @@
 
 .List {
   &:global(.ant-list) {
-    margin-top: 20px;
+    // margin-top: 20px;
 
     :global(.ant-list-header) {
+      padding: 20px 0 10px;
       font-weight: $font-bd;
       color: $black;
     }

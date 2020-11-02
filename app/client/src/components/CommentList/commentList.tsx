@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { ReactElement, useState } from 'react'
 import { List, Comment, Space, Tooltip } from 'antd'
 import {
   DislikeOutlined,
@@ -8,32 +8,6 @@ import {
 } from '@ant-design/icons'
 import MyTextArea from '../MyTextArea/myTextArea'
 import classes from './commentList.module.scss'
-import { SwitchClickEventHandler } from 'antd/lib/switch'
-
-interface listData {
-  //   href: string
-  //   title: string
-  //   description: string
-  id: string
-  parent: boolean
-  content: string
-  floor: string
-}
-
-const listData: Array<listData> = []
-for (let i = 0; i < 14; i++) {
-  listData.push({
-    // href: 'https://ant.design',
-    // title: `ant design part ${i}`,
-    // description:
-    //   'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-    id: `${i}`,
-    parent: false,
-    content:
-      'dkjkjf;akjsd;flkja;sdkj;lkjd;lfkja;lskdjf lkasjdf types beautifully and efficiently.',
-    floor: `#${i + 1}`,
-  })
-}
 
 // interface IconText {
 //   icon: React.FunctionComponent
@@ -63,79 +37,181 @@ const CommentList = () => {
     setAction('disliked')
   }
 
-  const actions = [
-    <Tooltip key="comment-basic-like" title="Like">
-      <span onClick={like}>
-        {React.createElement(action === 'liked' ? LikeFilled : LikeOutlined)}
-        <span className="comment-action">{likes}</span>
-      </span>
-    </Tooltip>,
-    <Tooltip key="comment-basic-dislike" title="Dislike">
-      <span onClick={dislike}>
-        {React.createElement(
-          action === 'disliked' ? DislikeFilled : DislikeOutlined,
-        )}
-        <span className="comment-action">{dislikes}</span>
-      </span>
-    </Tooltip>,
-    <span key="comment-basic-reply-to">回覆</span>,
-  ]
+  interface listData {
+    //   href: string
+    //   title: string
+    //   description: string
+    id: string
+    parent: boolean
+    content: string
+    floor: string
+    action: ReactElement[]
+    clicked: boolean
+    input: boolean
+  }
+
+  const toggleTextAreaHandler = (e: any, id: string) => {
+    e.stopPropagation()
+    const newList = list.map((item) => {
+      if (id === item.id) {
+        const updatedItem = {
+          ...item,
+          ...item.action,
+          input: !item.input,
+        }
+        return updatedItem
+      }
+      return item
+    })
+    setList(newList)
+  }
+
+  const listData: Array<listData> = []
+  for (let i = 0; i < 14; i++) {
+    listData.push({
+      // href: 'https://ant.design',
+      // title: `ant design part ${i}`,
+      // description:
+      //   'Ant Design, a design language for background applications, is refined by Ant UED Team.',
+      id: `${i}`,
+      parent: false,
+      content:
+        'dkjkjf;akjsd;flkja;sdkj;lkjd;lfkja;lskdjf lkasjdf types beautifully and efficiently.',
+      floor: `#${i + 1}`,
+      action: [
+        <Tooltip key="comment-basic-like" title="Like">
+          <span onClick={like}>
+            {React.createElement(
+              action === 'liked' ? LikeFilled : LikeOutlined,
+            )}
+            <span className="comment-action">{likes}</span>
+          </span>
+        </Tooltip>,
+        <Tooltip key="comment-basic-dislike" title="Dislike">
+          <span onClick={dislike}>
+            {React.createElement(
+              action === 'disliked' ? DislikeFilled : DislikeOutlined,
+            )}
+            <span className="comment-action">{dislikes}</span>
+          </span>
+        </Tooltip>,
+        <span
+          key="comment-basic-reply-to"
+          onClick={(e) => toggleTextAreaHandler(e, `${i}`)}
+        >
+          回覆
+        </span>,
+      ],
+      clicked: false,
+      input: false,
+    })
+  }
+  const [list, setList] = useState(listData)
+
+  //   const actions = [
+  //     <Tooltip key="comment-basic-like" title="Like">
+  //       <span onClick={like}>
+  //         {React.createElement(action === 'liked' ? LikeFilled : LikeOutlined)}
+  //         <span className="comment-action">{likes}</span>
+  //       </span>
+  //     </Tooltip>,
+  //     <Tooltip key="comment-basic-dislike" title="Dislike">
+  //       <span onClick={dislike}>
+  //         {React.createElement(
+  //           action === 'disliked' ? DislikeFilled : DislikeOutlined,
+  //         )}
+  //         <span className="comment-action">{dislikes}</span>
+  //       </span>
+  //     </Tooltip>,
+  //     <span key="comment-basic-reply-to" onClick={toggleTextAreaHandler}>
+  //       回覆
+  //     </span>,
+  //   ]
 
   type commentTemplate = {
     id: string
     content: string
+    action: ReactElement[]
     floor?: string
-    children?: React.ReactNode
-    onClick: React.MouseEventHandler
+    clicked: boolean
+    input?: boolean
   }
   const CommentTemplate: React.FC<commentTemplate> = (props) => (
-    <Comment author={props.floor} actions={actions} content={props.content}>
+    <Comment
+      author={props.floor}
+      actions={props.action}
+      content={props.content}
+    >
       {props.children}
     </Comment>
   )
 
-  const [isClick, setClick] = useState({ id: '', expand: false })
-
-  const parentCommentClickHandler = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-  ) => {
-    const commentId = e.currentTarget.id
-    const preState = isClick.expand
-    setClick((prevState) => {
-      return {
-        ...prevState,
+  const parentCommentClickHandler = (id: string) => {
+    const commentId = id
+    const newList = list.map((item) => {
+      if (item.id === commentId) {
+        // if (item.clicked) {
+        //   if (item.input) {
+        //     return item
+        //   } else {
+        //     const updatedItem = {
+        //       ...item,
+        //       clicked: !item.clicked,
+        //     }
+        //     return updatedItem
+        //   }
+        // }
+        const updatedItem = {
+          ...item,
+          clicked: !item.clicked,
+        }
+        return updatedItem
       }
+      return item
     })
+    setList(newList)
+  }
+
+  const onFocusHandler = (e: any) => {
+    e.stopPropagation()
   }
 
   return (
     <List
       className={classes.List}
       size="large"
-      header={`${listData.length} 條討論`}
+      header={`${list.length} 條討論`}
       pagination={{
         onChange: (page) => {
           console.log(page)
         },
         pageSize: 5,
       }}
-      dataSource={listData}
+      dataSource={list}
       // footer={
       //   //   <div>
       //   //     <b>ant design</b> footer part
       //   //   </div>
       // }
-      renderItem={(item) => (
-        <li className={classes.commentRoot}>
-          <CommentTemplate
-            id={item.id}
-            content={item.content}
-            onClick={parentCommentClickHandler}
+      renderItem={
+        (item) => (
+          <li
+            className={classes.commentRoot}
+            onClick={() => parentCommentClickHandler(item.id)}
           >
-            {isClick ? <MyTextArea /> : null}
-            {/* <CommentTemplate content={item.content} floor={item.floor} /> */}
-          </CommentTemplate>
-        </li>
+            <CommentTemplate
+              id={item.id}
+              content={item.content}
+              action={item.action}
+              clicked={item.clicked}
+              //   input={item.input}
+            >
+              {/* <CommentTemplate content={item.content} floor={item.floor} /> */}
+              {item.input ? <MyTextArea focused={onFocusHandler} /> : null}
+            </CommentTemplate>
+          </li>
+        )
+
         // <li>
         //   <Comment actions={actions} content={item.content} />
         // </li>
@@ -168,7 +244,7 @@ const CommentList = () => {
         // >
         //   <span className={classes.ListContent}>{item.content}</span>
         // </List.Item>
-      )}
+      }
     />
   )
 }
