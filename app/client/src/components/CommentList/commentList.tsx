@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react'
+import React, { ReactElement, useState, useEffect } from 'react'
 import { List, Comment, Space, Tooltip } from 'antd'
 import {
   DislikeOutlined,
@@ -46,17 +46,23 @@ const CommentList = () => {
     content: string
     floor: string
     action: ReactElement[]
+    textArea: boolean
     clicked: boolean
     input: boolean
   }
 
-  const toggleTextAreaHandler = (e: any, id: string) => {
+  const [textArea, setTextArea] = useState(false)
+
+  const toggleTextAreaHandler = (e: any) => {
     e.stopPropagation()
-    const newList = list.map((item) => {
+    const id = e.currentTarget.id
+    console.log('click', id)
+    // setTextArea(!textArea)
+
+    let newList = list.map((item) => {
       if (id === item.id) {
         const updatedItem = {
           ...item,
-          ...item.action,
           input: !item.input,
         }
         return updatedItem
@@ -64,49 +70,8 @@ const CommentList = () => {
       return item
     })
     setList(newList)
+    console.log(newList)
   }
-
-  const listData: Array<listData> = []
-  for (let i = 0; i < 14; i++) {
-    listData.push({
-      // href: 'https://ant.design',
-      // title: `ant design part ${i}`,
-      // description:
-      //   'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-      id: `${i}`,
-      parent: false,
-      content:
-        'dkjkjf;akjsd;flkja;sdkj;lkjd;lfkja;lskdjf lkasjdf types beautifully and efficiently.',
-      floor: `#${i + 1}`,
-      action: [
-        <Tooltip key="comment-basic-like" title="Like">
-          <span onClick={like}>
-            {React.createElement(
-              action === 'liked' ? LikeFilled : LikeOutlined,
-            )}
-            <span className="comment-action">{likes}</span>
-          </span>
-        </Tooltip>,
-        <Tooltip key="comment-basic-dislike" title="Dislike">
-          <span onClick={dislike}>
-            {React.createElement(
-              action === 'disliked' ? DislikeFilled : DislikeOutlined,
-            )}
-            <span className="comment-action">{dislikes}</span>
-          </span>
-        </Tooltip>,
-        <span
-          key="comment-basic-reply-to"
-          onClick={(e) => toggleTextAreaHandler(e, `${i}`)}
-        >
-          回覆
-        </span>,
-      ],
-      clicked: false,
-      input: false,
-    })
-  }
-  const [list, setList] = useState(listData)
 
   //   const actions = [
   //     <Tooltip key="comment-basic-like" title="Like">
@@ -127,6 +92,89 @@ const CommentList = () => {
   //       回覆
   //     </span>,
   //   ]
+  let listData: Array<listData> = [
+    {
+      // href: 'https://ant.design',
+      // title: `ant design part ${i}`,
+      // description:
+      //   'Ant Design, a design language for background applications, is refined by Ant UED Team.',
+      id: `1`,
+      parent: false,
+      content:
+        'dkjkjf;akjsd;flkja;sdkj;lkjd;lfkja;lskdjf lkasjdf types beautifully and efficiently.',
+      floor: `1`,
+      action: [
+        <Tooltip key="comment-basic-like" title="Like">
+          <span onClick={like}>
+            {React.createElement(
+              action === 'liked' ? LikeFilled : LikeOutlined,
+            )}
+            <span className="comment-action">{likes}</span>
+          </span>
+        </Tooltip>,
+        <Tooltip key="comment-basic-dislike" title="Dislike">
+          <span onClick={dislike}>
+            {React.createElement(
+              action === 'disliked' ? DislikeFilled : DislikeOutlined,
+            )}
+            <span className="comment-action">{dislikes}</span>
+          </span>
+        </Tooltip>,
+        <span
+          id={`1`}
+          key="comment-basic-reply-to"
+          onClick={toggleTextAreaHandler}
+        >
+          回覆
+        </span>,
+      ],
+      textArea: false,
+      clicked: false,
+      input: false,
+    },
+  ]
+  //   for (let i = 0; i < 14; i++) {
+  //     listData.push({
+  //       // href: 'https://ant.design',
+  //       // title: `ant design part ${i}`,
+  //       // description:
+  //       //   'Ant Design, a design language for background applications, is refined by Ant UED Team.',
+  //       id: `${i}`,
+  //       parent: false,
+  //       content:
+  //         'dkjkjf;akjsd;flkja;sdkj;lkjd;lfkja;lskdjf lkasjdf types beautifully and efficiently.',
+  //       floor: `#${i + 1}`,
+  //       action: [
+  //         <Tooltip key="comment-basic-like" title="Like">
+  //           <span onClick={like}>
+  //             {React.createElement(
+  //               action === 'liked' ? LikeFilled : LikeOutlined,
+  //             )}
+  //             <span className="comment-action">{likes}</span>
+  //           </span>
+  //         </Tooltip>,
+  //         <Tooltip key="comment-basic-dislike" title="Dislike">
+  //           <span onClick={dislike}>
+  //             {React.createElement(
+  //               action === 'disliked' ? DislikeFilled : DislikeOutlined,
+  //             )}
+  //             <span className="comment-action">{dislikes}</span>
+  //           </span>
+  //         </Tooltip>,
+  //         <span
+  //           id={`${i}`}
+  //           key="comment-basic-reply-to"
+  //           onClick={toggleTextAreaHandler}
+  //         >
+  //           回覆
+  //         </span>,
+  //       ],
+  //       textArea: false,
+  //       clicked: false,
+  //       input: false,
+  //     })
+  //   }
+  const [list, setList] = useState(listData)
 
   type commentTemplate = {
     id: string
