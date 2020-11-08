@@ -19,12 +19,11 @@
       border: none;
     }
   }
-  :global(.ant-list-items) {
-  }
+
   :global(.ant-comment) {
     width: 100%;
     border-bottom: 1px solid $natual2;
-    background-color: none;
+    background-color: transparent;
   }
   .commentRoot {
     margin-bottom: 0;
@@ -34,17 +33,24 @@
       margin-left: auto;
 
       opacity: 0;
+      //   &:hover {
+      //     :global(.ant-comment-actions) {
+      //       opacity: 1;
+      //       transition: opacity 0.2s;
+
+      //   }
     }
-    &:hover {
-      background-color: $natual-hover;
-      :global(.ant-comment-actions) {
-        opacity: 1;
-        transition: opacity 0.2s;
+    :global(.ant-comment-inner) {
+      padding: 10px 0;
+      background-color: transparent;
+      &:hover {
+        :global(.ant-comment-actions) {
+          opacity: 1;
+          transition: opacity 0.2s;
+        }
+        background-color: $natual-hover;
       }
     }
-  }
-  :global(.ant-comment-inner) {
-    padding: 5px 0;
   }
   :global(.ant-comment-content) {
     display: flex;
@@ -57,8 +63,30 @@
   }
   :global(.ant-comment-nested) {
     margin-left: 0;
-    padding-left: 40px;
+    padding: 0px;
     // background-color: $natual-light;
+    // :not(textarea) {
+    //   background-color: $natual-light;
+    // }
+    textarea,
+    button,
+    button span {
+      //   background-color: $white;
+    }
+    :global(.ant-comment-inner) {
+      padding: 10px 0 10px 40px;
+      background-color: transparent;
+      &:hover {
+        :global(.ant-comment-actions) {
+          opacity: 1;
+          transition: opacity 0.2s;
+        }
+        background-color: $natual-hover;
+      }
+    }
+  }
+  textarea {
+    background: none;
   }
 }
 .ListContent {

@@ -14,17 +14,21 @@ const MyTextArea = (props: props) => {
 
   const [buttonDisable, setButtonState] = useState(true)
 
-  const onChangeHanddler = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const onChangeHandler = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     let texts = event.target.value
     setValue(texts)
-    buttonStateHanddler(texts)
+    buttonStateHandler(texts)
   }
-  const buttonStateHanddler = (value: string) => {
+  const buttonStateHandler = (value: string) => {
     if (value == '') {
       setButtonState(true)
     } else {
       setButtonState(false)
     }
+  }
+
+  const stopPropagationHandler = (e: any) => {
+    e.stopPropagation()
   }
 
   //   const { value } = commentValue
@@ -35,10 +39,14 @@ const MyTextArea = (props: props) => {
         className={classes.TextArea}
         placeholder="留言..."
         autoSize
-        onChange={onChangeHanddler}
-        onClick={props.focused}
+        onChange={onChangeHandler}
+        onClick={stopPropagationHandler}
       />
-      <Button type="text" disabled={buttonDisable}>
+      <Button
+        type="text"
+        disabled={buttonDisable}
+        onClick={stopPropagationHandler}
+      >
         送出
       </Button>
     </div>

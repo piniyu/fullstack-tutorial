@@ -2,7 +2,13 @@
 
 .Wrapper {
   display: flex;
-  margin: 10px 0;
+  margin: 0 0 10px;
+}
+:global(.ant-comment-nested) {
+  .Wrapper {
+    padding-left: 20px;
+    // background-color: #fff;
+  }
 }
 
 .TextArea {
@@ -15,7 +21,7 @@
       bottom: 1px solid $natual2;
       radius: 0;
     }
-    background: none;
+    // background: none;
 
     &:hover {
       border-bottom: 1px solid $black;
