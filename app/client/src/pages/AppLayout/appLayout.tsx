@@ -14,6 +14,9 @@ import Anchor from '../../components/Anchor/tickerAnchor'
 import TickerComment from '../../components/TickerComment/tickerComment'
 import Tab from '../../components/Tab/tab'
 
+import ParentSize from '@visx/responsive/lib/components/ParentSize'
+import Chart from '../../components/Chart/chart'
+
 const { Header, Sider, Content } = Layout
 
 class AppLayout extends Component {
@@ -76,6 +79,9 @@ class AppLayout extends Component {
             <ProsCons />
             <TickerComment />
             <Tab />
+            <ParentSize>
+              {({ width }) => <Chart width={width} height={300} />}
+            </ParentSize>
           </Content>
         </Layout>
       </Layout>
